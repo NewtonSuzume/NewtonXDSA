@@ -1,0 +1,14 @@
+{
+  "name": "@8592/types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.ts",
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@8592/db": "file:../db",
+    "zod": "^3.21.4"
+  },
+  "license": "ISC"
+}

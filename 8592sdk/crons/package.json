@@ -1,0 +1,29 @@
+{
+  "name": "@8592/crons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "dev:": "dotenv -e ../../.env nodemon index.ts",
+    "start:cron": "dotenv -e ../../.env nodemon index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node-cron": "^3.0.2",
+    "microbundle": "0.15.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@8592/db": "file:../db",
+    "@8592/sdk": "file:../sdk",
+    "@8592/types": "file:../types",
+    "@8592/utils": "file:../utils",
+    "isomorphic-unfetch": "^3.1.0",
+    "node-cron": "^3.0.2",
+    "nodemon": "^2.0.22"
+  }
+}

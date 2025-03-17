@@ -1,0 +1,14 @@
+{
+  "name": "@8592/config_utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.ts",
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "mariadb": "^3.4.0",
+    "zod": "^3.21.4"
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"name": "src",
+			"path": "./"
+		},
+		{
+			"name": "Server",
+			"path": "./nasapage"
+		},
+		{
+			"name": "App",
+			"path": "./XDSAReference"
+		},
+		{
+			"name": "Analyzer",
+			"path": "./analyzer"
+		},
+		{
+			"name": "SDK",
+			"path": "./8592sdk"
+		}
+	],
+	"settings": {}
+}

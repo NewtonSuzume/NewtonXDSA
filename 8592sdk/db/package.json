@@ -1,0 +1,15 @@
+{
+  "name": "@8592/db",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "prisma": "latest"
+  },
+  "scripts": {
+    "db:gen": "npx prisma generate",
+    "db:push": "dotenv -e ../../.env prisma db push",
+    "build": "dotenv -e ../../.env prisma db push --accept-data-loss"
+  }
+}

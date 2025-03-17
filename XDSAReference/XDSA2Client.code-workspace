@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": ".",
+            "name": "src"
+		},
+		{
+			"path": "app",
+            "name": "views"
+        },
+        {
+			"path": "components",
+            "name": "components"
+        },
+		{
+			"path": "hooks",
+            "name": "hooks"
+        },
+		{
+			"path": "helpers",
+			"name": "helpers"
+		},
+		{
+			"path": "library",
+			"name": "uilib"
+		}
+	],
+	"settings": {}
+}
