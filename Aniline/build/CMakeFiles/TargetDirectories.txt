@@ -1,0 +1,13 @@
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/CMakeFiles/Aniline.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/CMakeFiles/edit_cache.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/CMakeFiles/rebuild_cache.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/glm/CMakeFiles/edit_cache.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/glm/CMakeFiles/rebuild_cache.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/glm/glm/CMakeFiles/glm.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/glm/glm/CMakeFiles/edit_cache.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/glm/glm/CMakeFiles/rebuild_cache.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/sdl/CMakeFiles/SDL3-shared.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/sdl/CMakeFiles/SDL3_test.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/sdl/CMakeFiles/SDL_uclibc.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/sdl/CMakeFiles/edit_cache.dir
+/Users/aryant/Projects/Robotics/NewtonXDSA/Aniline/build/libs/sdl/CMakeFiles/rebuild_cache.dir
