@@ -55,7 +55,7 @@ int main() {
 
     
     SDL_Event event;
-    float g = 0.0f;
+    int clock = 0;
 
     while (running) {
 
@@ -75,17 +75,16 @@ int main() {
         ImGui_ImplSDL3_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::ShowDemoWindow();
+        ImGui::Text("%i", clock);
 
  
 
         
 
-
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         SDL_GL_SwapWindow(window);
-        g++;
+        clock++;
     }
 
     ImGui_ImplOpenGL3_Shutdown();

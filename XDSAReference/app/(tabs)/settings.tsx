@@ -57,7 +57,7 @@ export default function Settings() {
                   <SKText>Last Updated At: {XDSACurrentClient.lastUpdated}</SKText>
                   <SKBoldText style={{paddingVertical: 5}}>(long press to update)</SKBoldText>
                 </SKFormBasis>
-              </TouchableOpacity>w
+              </TouchableOpacity>
 
             </>
             :

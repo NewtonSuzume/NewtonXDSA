@@ -26,7 +26,7 @@ export enum XDSAType {
 export enum XDSAGamePiece {
     NOTE_SPKR,
     NOTE_AMP,
-    NOTE_HIGH,
+    NOTE_TRAP,
     CORAL_1,
     CORAL_2,
     CORAL_3,
@@ -64,6 +64,8 @@ export interface XDSADatapoint {
     gamepiece?: XDSAGamePiece, 
     default?: any,
     unique?: boolean,
+    maximum?: number,
+    minimum?: number,
     enumValues?: {[val: number]: XDSAEnumConfiguration},
 
 }

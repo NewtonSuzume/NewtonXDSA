@@ -3,7 +3,7 @@ import { XDSADatabase, XDSAGamePiece, XDSAInformation } from "@8592/config_utils
 
 export const DatabaseConnection: XDSADatabase = {
     host: "localhost",
-    password: "Kakarakaya&89Vepudu$56",
+    password: "",
     user: "root",
     database: "XDSADatabase"
 }
