@@ -1,5 +1,4 @@
-import { XDSADatapoint, XDSAType } from "@8592/config_utils";
-import { XDSADatabase } from "@8592/config_utils/src/config_types";
+import { XDSADatapoint, XDSAType } from "@newtonxdsa/types";
 import mariadb from "mariadb"
 import { DatabaseConnection } from "../configurations/xdsa_config";
 

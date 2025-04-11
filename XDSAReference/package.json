@@ -15,11 +15,11 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@8592/client": "file:../8592sdk/client/8592-client-1.0.0.tgz",
-    "@8592/config_utils": "file:../8592sdk/config_utils/8592-config_utils-1.0.0.tgz",
-    "@8592/types": "file:../8592sdk/types",
     "@expo/dom-webview": "0.0.1",
     "@expo/vector-icons": "^14.0.2",
+    "@newtonxdsa/client": "file:../8592sdk/client/newtonxdsa-client-1.0.0.tgz",
+    "@newtonxdsa/helpers": "file:../8592sdk/helpers/newtonxdsa-helpers-1.0.0.tgz",
+    "@newtonxdsa/types": "file:../8592sdk/types/newtonxdsa-types-1.0.0.tgz",
     "@react-native-async-storage/async-storage": "^2.1.2",
     "@react-native-community/slider": "4.5.5",
     "@react-navigation/native": "^7.0.0",

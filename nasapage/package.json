@@ -1,6 +1,6 @@
 {
-  "name": "NewtonXDSA_Server",
-  "version": "1.0.1",
+  "name": "xdsaserver",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,17 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@8592/config_utils": "file:../8592sdk/config_utils",
-    "@8592/sdk": "file:../8592sdk/sdk",
-    "@8592/types": "file:../8592sdk/types",
+    "@hono/node-ws": "^1.1.0",
+    "@newtonxdsa/client": "file:../8592sdk/client/",
+    "@newtonxdsa/helpers": "file:../8592sdk/helpers/",
+    "@newtonxdsa/types": "file:../8592sdk/types/",
     "hono": "^4.0.9",
+    "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.4.0",
-    "minio": "^7.1.3",
     "mysql": "^2.18.1",
     "next": "14.1.2",
     "react": "^18",
     "react-dom": "^18",
     "uuid": "^11.1.0",
+    "ws": "^8.18.1",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -27,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/ws": "^8.18.0",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",

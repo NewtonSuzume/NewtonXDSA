@@ -1,9 +1,8 @@
-import { XDSAClient } from "@/data/client";
 import { XDSACurrentClient } from "@/data/clientdata";
-import { FormEnumObject, SKFGViewForm, SKFormCounter, SKFormEnum, SKFormNumField, SKFormSlider, SKFormSwitch, SKFormTextField } from "@/library/form/FormItems";
-import { XDSADatapoint, XDSAEnumConfiguration, XDSAPresentationRequest, XDSAType } from "@8592/config_utils";
-import { useState } from "react";
-import { View } from "react-native";
+import { FormEnumObject, SKFGViewForm, SKFormCounter, SKFormEnum, SKFormGradientScaleSlider, SKFormNumField, SKFormSlider, SKFormSwitch, SKFormTextField } from "@/library/form/FormItems";
+import { XDSADatapoint, XDSAEnumConfiguration, XDSAPresentationRequest, XDSAType } from "@newtonxdsa/types";
+import { Keyboard, KeyboardAvoidingView, Platform, Pressable, View } from "react-native";
+import { ScrollView } from "react-native";
 
 export default function GeneratedForm({form, setForm}: {form: {[key: string]: any}, setForm: (x: {[key: string]: any}) => void}) {
 
@@ -37,10 +36,10 @@ export default function GeneratedForm({form, setForm}: {form: {[key: string]: an
     }
 
     return (
-        <View>
+        <>
         {
             groups.map(
-            (x, i) => {
+            (x: any, i: number) => {
                 return (
                 <SKFGViewForm key={i} subtitle={grouptitles[i]}>
 
@@ -60,7 +59,7 @@ export default function GeneratedForm({form, setForm}: {form: {[key: string]: an
                             }/>
 
                             case XDSAPresentationRequest.SLIDER:
-                            return <SKFormSlider key={b.name} value={form[b.name]} onChange={(x) => setForm({...form, [b.name]: x})} items={XDSAEnumtoSakakiEnumAdapter(b.enumValues!)} title={b.presentableName}/>
+                            return <SKFormGradientScaleSlider key={b.name} value={form[b.name]} onChange={(x) => setForm({...form, [b.name]: x})} items={XDSAEnumtoSakakiEnumAdapter(b.enumValues!)} title={b.presentableName}/>
 
                             case XDSAPresentationRequest.COUNTER:
                             return <SKFormCounter key={b.name} title={b.presentableName} value={form[b.name]} onChange={(x) => setForm({...form, [b.name]: x})}/>
@@ -84,7 +83,7 @@ export default function GeneratedForm({form, setForm}: {form: {[key: string]: an
                 </SKFGViewForm>)
             })
         }
-        </View>
+        </>
     )
 
 }

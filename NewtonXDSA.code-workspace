@@ -13,14 +13,6 @@
 			"path": "./XDSAReference"
 		},
 		{
-			"name": "Analyzer",
-			"path": "./analyzer"
-		},
-		{
-			"name": "CPPAnalyzer",
-			"path": "./Aniline"
-		},
-		{
 			"name": "SDK",
 			"path": "./8592sdk"
 		}

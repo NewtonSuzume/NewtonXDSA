@@ -29,6 +29,15 @@ export class Color {
         return `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
     }
 
+    static fromHex(color: string) {
+
+        let val = color.replace(/^#/, '');
+        
+
+        return new Color(parseInt(val.substring(0, 2), 16), parseInt(val.substring(2, 4), 16), parseInt(val.substring(4, 6), 16), 1)
+
+    }
+
 }
 
 export type Theme = {
@@ -43,8 +52,8 @@ export const basetheme: Theme = {
         mg: new Color(238,238,238,1),
         fg: new Color(255,255,255,1),
         bg: new Color(244,244,244,1),
-        rule: new Color(255,255,255,1),
-        acc: new Color(210, 237, 175, 1),
+        rule: new Color(240,240,240,1),
+        acc: Color.fromHex("#0093b0"),
     },
     dark: {
         main: new Color(255,255,255,1),
@@ -53,7 +62,7 @@ export const basetheme: Theme = {
         mg: new Color(18,18,18,1),
         bg: new Color(20,20,20,1),
         rule: new Color(70,70,70,1),
-        acc: new Color(210, 237, 175, 1),
+        acc: Color.fromHex("#0093b0"),
 
     }
 }

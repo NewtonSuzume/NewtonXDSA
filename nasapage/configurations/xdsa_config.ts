@@ -1,9 +1,9 @@
-import { XDSACategory, XDSADatapoint, XDSAPresentationRequest, XDSAType } from "@8592/config_utils"
-import { XDSADatabase, XDSAGamePiece, XDSAInformation } from "@8592/config_utils/src/config_types"
+import { XDSACategory, XDSADatapoint, XDSAPresentationRequest, XDSAType } from "@newtonxdsa/types"
+import { XDSADatabase, XDSAGamePiece, XDSAInformation } from "@newtonxdsa/types"
 
 export const DatabaseConnection: XDSADatabase = {
     host: "localhost",
-    password: "",
+    password: "Kakarakaya&89Vepudu$56",
     user: "root",
     database: "XDSADatabase"
 }
@@ -11,7 +11,8 @@ export const DatabaseConnection: XDSADatabase = {
 export const ServerInfo: XDSAInformation = {
     name: "First XDSAServer Ever",
     team: 8592,
-    team_name: "Newton^2"
+    team_name: "Newton^2", 
+    team_color: "#0093b0"
 }
 
 export const Configuration: XDSADatapoint[] = [
@@ -66,20 +67,12 @@ export const Configuration: XDSADatapoint[] = [
             }
         },
         {
-            name: "a_coral_first",
-            presentableName: "L1 Coral",
+            name: "a_coral_fourth",
+            presentableName: "L4 Coral",
             category: XDSACategory.AUTONOMOUS,
             type: XDSAType.INTEGER,
             requested_presentation: XDSAPresentationRequest.COUNTER,
-            gamepiece: XDSAGamePiece.CORAL_1
-        },
-        {
-            name: "a_coral_second",
-            presentableName: "L2 Coral",
-            category: XDSACategory.AUTONOMOUS,
-            type: XDSAType.INTEGER,
-            requested_presentation: XDSAPresentationRequest.COUNTER,
-            gamepiece: XDSAGamePiece.CORAL_2
+            gamepiece: XDSAGamePiece.CORAL_4
         },
         {
             name: "a_coral_third",
@@ -90,13 +83,23 @@ export const Configuration: XDSADatapoint[] = [
             gamepiece: XDSAGamePiece.CORAL_3
         },
         {
-            name: "a_coral_fourth",
-            presentableName: "L4 Coral",
+            name: "a_coral_second",
+            presentableName: "L2 Coral",
             category: XDSACategory.AUTONOMOUS,
             type: XDSAType.INTEGER,
             requested_presentation: XDSAPresentationRequest.COUNTER,
-            gamepiece: XDSAGamePiece.CORAL_4
+            gamepiece: XDSAGamePiece.CORAL_2
         },
+        {
+            name: "a_coral_first",
+            presentableName: "L1 Coral",
+            category: XDSACategory.AUTONOMOUS,
+            type: XDSAType.INTEGER,
+            requested_presentation: XDSAPresentationRequest.COUNTER,
+            gamepiece: XDSAGamePiece.CORAL_1
+        },
+
+
         {
             name: "a_proc",
             presentableName: "Processor",
@@ -123,20 +126,12 @@ export const Configuration: XDSADatapoint[] = [
 
     //teleop stuff
         {
-            name: "t_coral_first",
-            presentableName: "L1 Coral",
+            name: "t_coral_fourth",
+            presentableName: "L4 Coral",
             category: XDSACategory.TELEOP,
             type: XDSAType.INTEGER,
             requested_presentation: XDSAPresentationRequest.COUNTER,
-            gamepiece: XDSAGamePiece.CORAL_1
-        },
-        {
-            name: "t_coral_second",
-            presentableName: "L2 Coral",
-            category: XDSACategory.TELEOP,
-            type: XDSAType.INTEGER,
-            requested_presentation: XDSAPresentationRequest.COUNTER,
-            gamepiece: XDSAGamePiece.CORAL_2
+            gamepiece: XDSAGamePiece.CORAL_4
         },
         {
             name: "t_coral_third",
@@ -147,13 +142,24 @@ export const Configuration: XDSADatapoint[] = [
             gamepiece: XDSAGamePiece.CORAL_3
         },
         {
-            name: "t_coral_fourth",
-            presentableName: "L4 Coral",
+            name: "t_coral_second",
+            presentableName: "L2 Coral",
             category: XDSACategory.TELEOP,
             type: XDSAType.INTEGER,
             requested_presentation: XDSAPresentationRequest.COUNTER,
-            gamepiece: XDSAGamePiece.CORAL_4
+            gamepiece: XDSAGamePiece.CORAL_2
         },
+        {
+            name: "t_coral_first",
+            presentableName: "L1 Coral",
+            category: XDSACategory.TELEOP,
+            type: XDSAType.INTEGER,
+            requested_presentation: XDSAPresentationRequest.COUNTER,
+            gamepiece: XDSAGamePiece.CORAL_1
+        },
+
+
+
         {
             name: "t_proc",
             presentableName: "Processor",
@@ -240,7 +246,7 @@ export const Configuration: XDSADatapoint[] = [
             requested_presentation: XDSAPresentationRequest.SLIDER,
             default: 2,
             enumValues: {
-                0: {text: "None"}, 
+                0: {text: "Bad"}, 
                 1: {text: ""}, 
                 2: {text: ""},
                 3: {text: ""},

@@ -1,6 +1,5 @@
-import { generateZodTypeFromConfig, XDSADatapoint, XDSAInformation, XDSAType } from '@8592/config_utils'
-import { z } from 'zod'
-import uuid from "react-native-uuid"
+import { XDSADatapoint, XDSAInformation, XDSAType } from '@newtonxdsa/types'
+import { generateZodTypeFromConfig } from "@newtonxdsa/helpers"
 
 interface BasicRepXDSAClient {
     endpoint: string,
@@ -14,16 +13,18 @@ export class XDSAClient {
 
     endpoint: string;
     api_func: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
+    uuid_func: () => string;
     server_config: XDSADatapoint[] = []
     server_info: XDSAInformation = {
         name: '',
         team: 0,
-        team_name: ''
+        team_name: '', 
+        team_color: '#0093b0'
     }
     template: Object = {}
     lastUpdated: string = (new Date()).toLocaleString()
 
-    constructor(endpoint: string, fetch_compat_api_handler: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>) {
+    constructor(endpoint: string, fetch_compat_api_handler: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>, uuid: () => string) {
         
         if (endpoint.slice(endpoint.length-1) == "/") {    
             this.endpoint = endpoint.slice(0, endpoint.length-1) + "/api";
@@ -33,6 +34,8 @@ export class XDSAClient {
         }
         
         this.api_func = fetch_compat_api_handler;
+        this.uuid_func = uuid;
+
     }
 
     setEndpoint(endpoint: string) {
@@ -62,10 +65,10 @@ export class XDSAClient {
         return JSON.stringify(clientBasicRepresentation)
     }
 
-    loadClientFromConfig(rep: string) {
+    loadClientFromConfig(rep: string, uuid: () => string) {
 
         const clientBasicRepresentation: BasicRepXDSAClient = JSON.parse(rep)
-        let client = new XDSAClient("", fetch)
+        let client = new XDSAClient("", fetch, uuid)
         this.endpoint = clientBasicRepresentation.endpoint
         this.server_config = clientBasicRepresentation.server_config
         this.template = clientBasicRepresentation.template
@@ -76,7 +79,7 @@ export class XDSAClient {
 
     generateTemplate() {
 
-        let template: {[key: string]: any} = {id: uuid.v4() as string}
+        let template: {[key: string]: any} = {id: this.uuid_func() as string}
 
         for (let datapoint of this.server_config) {
 

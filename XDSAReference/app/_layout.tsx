@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { Pressable } from 'react-native';
+import { KeyboardAvoidingView, Platform, Pressable } from 'react-native';
 import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -29,36 +29,36 @@ export default function RootLayout() {
   }
 
   return (
+      <Pressable style={{flexGrow: 1}}>
+        
+          <SafeAreaProvider>
+            <EntryListContext>
+              <SakakiContext>
 
-    <Pressable style={{flexGrow: 1}}>
-        <SafeAreaProvider>
-          <EntryListContext>
-            <SakakiContext>
-
-              <Stack
-              
-                screenOptions={{
-
-                  headerShown: false
-
-                }}
-
-              >
-
-                <Stack.Screen name="(tabs)"/>
+                <Stack
                 
-                <Stack.Screen name="modals/selectedserver" options={{presentation: 'modal'}}/>
-                <Stack.Screen name="modals/createentry" options={{presentation: 'modal'}}/>
-                <Stack.Screen name="modals/setdefaults" options={{presentation: 'modal'}}/>
-                <Stack.Screen name="modals/[editentry]" options={{presentation: 'modal'}}/>
+                  screenOptions={{
+
+                    headerShown: false
+
+                  }}
+
+                >
+
+                  <Stack.Screen name="(tabs)"/>
+                  
+                  <Stack.Screen name="modals/selectedserver" options={{presentation: 'modal'}}/>
+                  <Stack.Screen name="modals/createentry" options={{presentation: 'modal'}}/>
+                  <Stack.Screen name="modals/setdefaults" options={{presentation: 'modal'}}/>
+                  <Stack.Screen name="modals/[editentry]" options={{presentation: 'modal'}}/>
 
 
-              </Stack>
-              
+                </Stack>
+                
 
-            </SakakiContext>
-          </EntryListContext>
-        </SafeAreaProvider>
-    </Pressable>
+              </SakakiContext>
+            </EntryListContext>
+          </SafeAreaProvider>
+      </Pressable>
   );
 }

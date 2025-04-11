@@ -1,13 +1,14 @@
-import { XDSAClient } from "./client";
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { XDSAClient } from '@newtonxdsa/client'
+import uuid from 'react-native-uuid'
 
-export const XDSACurrentClient = new XDSAClient("", fetch)
+export const XDSACurrentClient = new XDSAClient("", fetch, uuid.v4)
 
 AsyncStorage.getItem('endpoint-settings').then(
     (x) => {
         console.log("load succeeded")
         if (x)
-            XDSACurrentClient.loadClientFromConfig(x)
+            XDSACurrentClient.loadClientFromConfig(x, uuid.v4)
     }
 )
 .catch(() => {

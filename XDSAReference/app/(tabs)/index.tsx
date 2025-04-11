@@ -14,7 +14,6 @@ import MatchEntryCard from '@/components/entries/entrycard';
 export default function HomeScreen() {
 
   const theme = useTheme()
-  const secondColor = new Color(theme.sub.r, theme.sub.g, theme.sub.b, 0.2)
 
   const context = useEntryListProvider()
 

@@ -76,7 +76,7 @@ export function SKBlockIconButton({enabled = true, style, icon, text, onPress, o
     const tp = new Color(color.r, color.g, color.b, 0.2)
 
     const disabledfg = new Color(theme.main.r, theme.main.g, theme.main.b, 0.5);
-    const disabledbg = new Color(theme.main.r, theme.main.g, theme.main.b, 0.1);
+    const disabledbg = new Color(theme.main.r, theme.main.g, theme.main.b, 0.05);
 
     return (
         <TouchableOpacity onLongPress={onLongPress} onPress={onPress} disabled={!enabled} style={{marginVertical: style.marginVertical, marginHorizontal: style.marginHorizontal, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: (enabled ? tp.rgba() : disabledbg.rgba()), borderRadius: 10, paddingVertical: style.paddingVertical, paddingHorizontal: style.paddingHorizontal, flex: style.flex}}>

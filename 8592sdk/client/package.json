@@ -1,5 +1,5 @@
 {
-  "name": "@8592/client",
+  "name": "@newtonxdsa/client",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -7,7 +7,9 @@
   "keywords": [],
   "author": "",
   "dependencies": {
-    "@8592/config_utils": "file:../config_utils",
+    "@newtonxdsa/helpers": "file:../helpers",
+    "@newtonxdsa/types": "file:../types",
+    "uuid": "^11.1.0",
     "zod": "^3.21.4"
   },
   "license": "ISC"

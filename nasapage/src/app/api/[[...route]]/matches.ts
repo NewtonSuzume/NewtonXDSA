@@ -1,10 +1,8 @@
 import { Hono } from "hono";
-import { dynamicMatchSchema } from "@8592/types";
-import { inspect } from "util";
-import { generateZodTypeFromConfig } from "@8592/config_utils";
+import { generateZodTypeFromConfig } from "@newtonxdsa/helpers";
 import { Configuration } from "../../../../configurations/xdsa_config";
 import { pullFromMatchesTable, upsertMatch } from "../../../../dbhandler/dbhandler";
-import { error } from "console";
+import { wss } from "@/app/sock/live_events";
 
 export function registerMatchesRoutes(app: Hono) {
   const matches = new Hono();
@@ -80,12 +78,13 @@ export function registerMatchesRoutes(app: Hono) {
 
     const json = await c.req.json()
 
-    const test = dynamicMatchSchema.safeParse(json)
+    const test = generateZodTypeFromConfig(Configuration).safeParse(json)
 
     if (test.success) {
 
       console.log("DATABASE ADDITION SHOULD SUCCEED")
       try {
+        
         await upsertMatch(Configuration, json)
         return c.json(json, {status: 200 })
       }

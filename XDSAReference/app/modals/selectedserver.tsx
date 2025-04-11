@@ -4,12 +4,13 @@ import { Color } from '@/library/theme/basethemes';
 import { SKModalHeaderBar } from '@/library/headers/HeaderBar';
 import { SKFGViewForm, SKFormEnum, SKFormTextField } from '@/library/form/FormItems';
 import { SKBoldText, SKText } from '@/library/bases/ThemedText';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Platform, View } from 'react-native';
 import { useState } from 'react';
 import { storeXDSAClientToJSONStore, XDSACurrentClient } from '@/data/clientdata';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { XDSADatapoint } from '@8592/config_utils';
+import { XDSADatapoint } from '@newtonxdsa/types';
 import { router } from 'expo-router';
+import { SKBGView } from '@/library/bases/ThemedViews';
 
 
 export default function SelectedServer() {
@@ -27,6 +28,8 @@ export default function SelectedServer() {
     if (pagenum === 0) {
 
       return (
+        <SKBGView style={{paddingHorizontal: 0}}>
+        <KeyboardAvoidingView style={{flex: 1, marginTop: 0}} behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <View style={{alignItems: 'center', justifyContent: 'center', height: "82%"}}>
               <SKBoldText style={{fontSize: 30, textAlign: 'center', paddingBottom: 12}}>
                 Connect to an XDSA Instance
@@ -77,6 +80,8 @@ export default function SelectedServer() {
               }
               </View>
         </View>
+        </KeyboardAvoidingView>
+        </SKBGView>
       )
 
     }

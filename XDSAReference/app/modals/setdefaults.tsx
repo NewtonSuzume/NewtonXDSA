@@ -1,16 +1,11 @@
 import { SKBlockIconButton } from '@/library/buttons/ThemedButton';
-import { useTheme } from '@/library/context';
-import { Color } from '@/library/theme/basethemes';
 import { SKModalHeaderBar } from '@/library/headers/HeaderBar';
-import { FormEnumObject, SKFGViewForm, SKFormEnum, SKFormNumField, SKFormSwitch, SKFormTextField, SKFormSlider, SKFormCounter } from '@/library/form/FormItems';
-import { SKBoldText, SKText } from '@/library/bases/ThemedText';
-import { ActivityIndicator, View } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { storeXDSAClientToJSONStore, XDSACurrentClient } from '@/data/clientdata';
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { generateZodTypeFromConfig, XDSACategory, XDSADatapoint, XDSAEnumConfiguration, XDSAPresentationRequest, XDSAType } from '@8592/config_utils';
 import GeneratedForm from '@/components/formgenerator/AutoForm';
 import { router } from 'expo-router';
+import { KeyboardAvoidingView, Platform } from 'react-native';
+import { SKBGView } from '@/library/bases/ThemedViews';
 
 
 export default function CreateEntryForm() {
@@ -21,28 +16,34 @@ export default function CreateEntryForm() {
 
   return (
 
-    <SKModalHeaderBar title='Custom Defaults' interactionsR={
-    <SKBlockIconButton icon="pencil" text='Set' onPress={() => {
+    <SKBGView style={{paddingHorizontal: 0}}>
+      <KeyboardAvoidingView style={{flex: 1, marginTop: 0}} behavior={Platform.OS === "ios" ? "padding" : "height"}>
 
-      for (let item of Object.entries(form)) {
-        if (item[0] != "id") {
-          let ind = XDSACurrentClient.server_config.findIndex(x => x.name == item[0])
-          console.log(ind)
-          XDSACurrentClient.server_config[ind].default = item[1]
-        }
-      }
+        <SKModalHeaderBar title='Custom Defaults' interactionsR={
+        <SKBlockIconButton icon="pencil" text='Set' onPress={() => {
 
-      storeXDSAClientToJSONStore(XDSACurrentClient)
-      router.back()
+          for (let item of Object.entries(form)) {
+            if (item[0] != "id") {
+              let ind = XDSACurrentClient.server_config.findIndex(x => x.name == item[0])
+              console.log(ind)
+              XDSACurrentClient.server_config[ind].default = item[1]
+            }
+          }
 
-    }}/>
-    }>
+          storeXDSAClientToJSONStore(XDSACurrentClient)
+          router.back()
 
-        
-        <GeneratedForm form={form} setForm={setForm}/>
+        }}/>
+        }>
+
+            
+            <GeneratedForm form={form} setForm={setForm}/>
 
 
-    </SKModalHeaderBar>
+        </SKModalHeaderBar>
+
+      </KeyboardAvoidingView>
+    </SKBGView>
 
   );
 }

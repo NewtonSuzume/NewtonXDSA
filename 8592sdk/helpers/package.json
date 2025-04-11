@@ -1,0 +1,15 @@
+{
+  "name": "@newtonxdsa/helpers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.ts",
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@newtonxdsa/types": "file:../types",
+    "mariadb": "^3.4.0",
+    "zod": "^3.21.4"
+  },
+  "license": "ISC"
+}

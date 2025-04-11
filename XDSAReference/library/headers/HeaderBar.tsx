@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement, ReactNode } from 'react';
-import { ListRenderItem, Modal, Pressable, ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme } from 'react-native';
+import { ListRenderItem, Modal, Platform, Pressable, ScrollView, StyleSheet, TouchableOpacity, View, useColorScheme } from 'react-native';
 import Animated, {
   Extrapolation,
   interpolate,
@@ -126,7 +126,7 @@ export function SKRootHeaderBar({ children, title, interactions }: HeaderProps) 
 
           <Animated.Text style={[{fontWeight: "600", fontSize: 50, color: theme.main.rgba()}, textStyle]}>{title}</Animated.Text>
 
-          <View style={{flex: 1, paddingTop: 5, gap: 10}}>{children}</View>
+          <Pressable><View style={{flex: 1, paddingTop: 5, gap: 10}}>{children}</View></Pressable>
 
 
       </Animated.ScrollView>
@@ -138,8 +138,14 @@ export function SKRootHeaderBar({ children, title, interactions }: HeaderProps) 
           <View style={{marginLeft: 'auto', flexDirection: 'row', gap: 10}}>{interactions}</View>
         </Animated.View>
 
+        {
 
-        <ABlurView intensity={50} style={[{width: "100%", height: insets.top+50, position: 'absolute', borderBottomColor: theme.fg.rgba(), borderBottomWidth: 1}, headerTextStyles]}/>
+          Platform.OS === "ios" ?
+          <ABlurView intensity={50} style={[{width: "100%", height: insets.top+50, position: 'absolute', borderBottomColor: theme.fg.rgba(), borderBottomWidth: 1}, headerTextStyles]}/>
+          :
+          <Animated.View style={[{backgroundColor: theme.fg.rgba(), width: "100%", height: insets.top+50, position: 'absolute', borderBottomColor: theme.mg.rgba(), borderBottomWidth: 1}, headerTextStyles]}/>
+
+        }
 
       </View>
 
@@ -178,13 +184,13 @@ export function SKRootHeaderBarGradient({ children, title, interactions, gradien
     <SKGradientBG style={{paddingHorizontal:0}} colors={gradientColors} locations={gradientLocations}>
 
         <Animated.ScrollView ref={scrollRef} scrollEventThrottle={16} style={{paddingHorizontal: 15, flexGrow: 1}} contentContainerStyle={{paddingTop: insets.top+50, paddingBottom: 15}}>
-
+          <Pressable>
 
             <Animated.Text style={[{fontWeight: "600", fontSize: 50, color: theme.main.rgba()}, textStyle]}>{title}</Animated.Text>
 
             <View style={{flex: 1, paddingTop: 5, gap: 10}}>{children}</View>
 
-
+          </Pressable>
         </Animated.ScrollView>
 
         <View style={[{paddingTop: insets.top, height: insets.top+50, position: 'absolute', width: "100%"}]}>
@@ -195,7 +201,14 @@ export function SKRootHeaderBarGradient({ children, title, interactions, gradien
           </Animated.View>
 
 
+          {
+
+          Platform.OS === "ios" ?
           <ABlurView intensity={50} style={[{width: "100%", height: insets.top+50, position: 'absolute', borderBottomColor: theme.fg.rgba(), borderBottomWidth: 1}, headerTextStyles]}/>
+          :
+          <Animated.View style={[{backgroundColor: theme.fg.rgba(), width: "100%", height: insets.top+50, position: 'absolute', borderBottomColor: theme.mg.rgba(), borderBottomWidth: 1}, headerTextStyles]}/>
+
+          }
 
         </View>
 
@@ -214,58 +227,78 @@ export function SKModalHeaderBar({children, title, interactionsL, interactionsR,
 
 
     <SKBGView style={{paddingHorizontal: 0}}>
-
       {
 
         !noScroll ? 
         
-        <ScrollView style={{ paddingHorizontal: 15, flexGrow: 1}} contentContainerStyle={{paddingTop: 50+15+(needsSafeArea ? sa.top : 0)}}>
-        
+        <ScrollView style={{ paddingHorizontal: 15, flexGrow: 1}} contentContainerStyle={{paddingTop: 50+15+(needsSafeArea ? sa.top : 0), paddingBottom: sa.bottom+15}}>
+          <Pressable>
           {children}
+          </Pressable>
 
         </ScrollView>
 
         :
 
-        <View style={{height: "100%", paddingHorizontal: 15, flexGrow: 1, paddingTop: 50+15+(needsSafeArea ? sa.top : 0)}}>
-        
-          {children}
-
-        </View>
+          <View style={{height: "100%", paddingHorizontal: 15, flexGrow: 1, paddingTop: 50+15+(needsSafeArea ? sa.top : 0)}}>
+            {children}
+          </View>
 
       }
 
 
-
-
-      <BlurView intensity={100} style={{position: 'absolute', width: '100%', borderBottomWidth: 0.5, borderColor: theme.rule.rgba()}}>
-        <View style={{height: (needsSafeArea ? sa.top : 0)}}></View>
-        <View style={{paddingHorizontal: 7, height: 50, justifyContent: 'center', alignItems: 'center', width: "100%"}}>
-          <View pointerEvents='box-none' style={{position: 'absolute', width: "100%", alignItems: 'flex-start'}}>
+      {
+        Platform.OS === 'ios' ? 
+        <BlurView intensity={100} style={{position: 'absolute', width: '100%', borderBottomWidth: 0.5, borderColor: theme.rule.rgba()}}>
+          <View style={{height: (needsSafeArea ? sa.top : 0)}}></View>
+          <View style={{paddingHorizontal: 7, height: 50, justifyContent: 'center', alignItems: 'center', width: "100%"}}>
+            <View pointerEvents='box-none' style={{position: 'absolute', width: "100%", alignItems: 'flex-start'}}>
+              
+              <View style={{flexDirection: 'row'}}>
+                {interactionsL}
+              </View>
             
-            <View style={{flexDirection: 'row'}}>
-              {interactionsL}
-            </View>
-          
-          </View>
-
-          <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'center'}}>
-            <SKBoldText style={{fontSize: 16}}>{title}</SKBoldText>
-          </View>
-
-          <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'flex-end'}}>
-
-            <View style={{flexDirection: 'row'}}>
-              {interactionsR}
             </View>
 
+            <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'center'}}>
+              <SKBoldText style={{fontSize: 16}}>{title}</SKBoldText>
+            </View>
+
+            <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'flex-end'}}>
+
+              <View style={{flexDirection: 'row'}}>
+                {interactionsR}
+              </View>
+
+            </View>
+          </View>
+        </BlurView>
+        :
+        <View style={{backgroundColor: theme.fg.rgba(), position: 'absolute', width: '100%', borderBottomWidth: 0.5, borderColor: theme.rule.rgba()}}>
+          <View style={{height: (needsSafeArea ? sa.top : 0)}}></View>
+          <View style={{paddingHorizontal: 7, height: 50, justifyContent: 'center', alignItems: 'center', width: "100%"}}>
+            <View pointerEvents='box-none' style={{position: 'absolute', width: "100%", alignItems: 'flex-start'}}>
+              
+              <View style={{flexDirection: 'row'}}>
+                {interactionsL}
+              </View>
+            
+            </View>
+
+            <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'center'}}>
+              <SKBoldText style={{fontSize: 16}}>{title}</SKBoldText>
+            </View>
+
+            <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'flex-end'}}>
+
+              <View style={{flexDirection: 'row'}}>
+                {interactionsR}
+              </View>
+
+            </View>
           </View>
         </View>
-
-  
-   
-
-      </BlurView>
+      }
 
 
 
@@ -277,56 +310,4 @@ export function SKModalHeaderBar({children, title, interactionsL, interactionsR,
 
 }
 
-export function SKHeaderBarFlatList({children, title, interactionsL, interactionsR, needsSafeArea, data, renderItem}: HeaderFlatListProps ) {
 
-  const sa = useSafeAreaInsets()
-
-  return (
-
-
-    <SKBGView style={{paddingHorizontal: 0}}>
-
-      
-
-      <FlatList data={data} renderItem={renderItem} style={{paddingHorizontal: 15, flexGrow: 1}} contentContainerStyle={{paddingTop: 50+15+(needsSafeArea ? sa.top : 0)}}/>
-        
-
-
-      <BlurView intensity={100} style={{position: 'absolute', width: '100%'}}>
-        <View style={{height: (needsSafeArea ? sa.top : 0)}}></View>
-        <View style={{paddingHorizontal: 7, height: 50, justifyContent: 'center', alignItems: 'center', width: "100%"}}>
-          <View pointerEvents='box-none' style={{position: 'absolute', width: "100%", alignItems: 'flex-start'}}>
-            
-            <View style={{flexDirection: 'row'}}>
-              {interactionsL}
-            </View>
-          
-          </View>
-
-          <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'center'}}>
-            <SKBoldText style={{fontSize: 16}}>{title}</SKBoldText>
-          </View>
-
-          <View pointerEvents='box-none' style={{width: "100%", position: "absolute", alignItems: 'flex-end'}}>
-
-            <View style={{flexDirection: 'row'}}>
-              {interactionsR}
-            </View>
-
-          </View>
-        </View>
-
-  
-   
-
-      </BlurView>
-
-
-
-    </SKBGView>
-
-
-
-  )
-
-}

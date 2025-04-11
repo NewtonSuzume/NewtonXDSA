@@ -1,9 +1,5 @@
 import { Hono } from "hono";
-import { inspect } from "util";
-import serverConfig from "../../../../server.config";
-import { Configuration, DatabaseConnection, ServerInfo } from "../../../../configurations/xdsa_config";
-import {z} from 'zod'
-import { generateZodTypeFromConfig } from "@8592/config_utils";
+import { Configuration, ServerInfo } from "../../../../configurations/xdsa_config";
 import { buildMariaDBTables } from "../../../../dbhandler/dbhandler";
 
 

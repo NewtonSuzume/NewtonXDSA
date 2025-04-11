@@ -8,7 +8,7 @@ import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { navigate } from "expo-router/build/global-state/routing";
 import { Href, Link, RelativePathString } from "expo-router";
 import Slider from '@react-native-community/slider'
-
+import { LinearGradient } from "expo-linear-gradient";
 
 export type FormEnumObject = {
     value: any,
@@ -214,7 +214,7 @@ export function SKFormEnum({title, items, onChange, defaultValue = 0}: {items: F
     const tp = new Color(theme.acc.r, theme.acc.g, theme.acc.b, 0.2)
 
     const disabledfg = new Color(theme.main.r, theme.main.g, theme.main.b, 0.5);
-    const disabledbg = new Color(theme.main.r, theme.main.g, theme.main.b, 0.1);
+    const disabledbg = new Color(theme.main.r, theme.main.g, theme.main.b, 0.05);
 
     return (
 
@@ -289,6 +289,25 @@ export function SKFormSlider({title, onChange, value, items}: {title: string, on
 
 }
 
+export function SKFormGradientScaleSlider({title, onChange, value, items}: {title: string, onChange?: (x: number) => void, value?: number, items: FormEnumObject[]}) {
+
+
+    return (
+        <SKFormBasis style={{flexDirection: 'column'}}>
+            
+            <SKText style={{paddingTop: 10, fontSize: 16, alignSelf: "flex-start"}}>{title}</SKText>
+            <View style={{flexDirection: 'row', width: "100%", alignItems: 'center', paddingTop: 15}}>
+                <SKText>{items[0].title}</SKText>
+                <SKText style={{marginLeft: 'auto'}}>{items.splice(-1)[0].title}</SKText>
+            </View>
+            <LinearGradient start={{x: 0, y: 0.75}} end={{x: 1, y: 0.25}}  colors={["#FF3B30", "yellow", "#30D158"]} style={{width: "100%", marginBottom: 10, borderRadius: 50, paddingTop: 2,paddingHorizontal: 5, marginTop: 10}}>
+                <Slider thumbTintColor="white" onValueChange={x => onChange?.(x)} value={value} style={{width:"100%"}} minimumTrackTintColor="transparent" maximumTrackTintColor="transparent" step={1} minimumValue={items[0].value as number} maximumValue={items.slice(-1)[0].value+1 as number}></Slider>
+            </LinearGradient>
+        </SKFormBasis>
+    )
+
+}
+
 export function SKFormCounter({title, onChange, value}: {title: string, onChange?: (x: number) => void, value?: number}) {
 
     const [counterval, setCVal] = useState(value ? value : 0)
@@ -297,6 +316,7 @@ export function SKFormCounter({title, onChange, value}: {title: string, onChange
 
     return (
         <SKFormBasis style={{flexDirection: 'column'}}>
+            
             <SKText style={{paddingTop: 10, fontSize: 16, alignSelf: "flex-start"}}>{title}</SKText>
             <View style={{flexDirection: 'row', alignItems: 'center', paddingBottom: 7}}>
                 <TouchableOpacity onPress={() => {setCVal(counterval-1 < 0 ? 0 : counterval-1 )}} hitSlop={40}><TabBarIcon style={{color: "#ff3b30"}} name={"circle-minus"}/></TouchableOpacity> 
