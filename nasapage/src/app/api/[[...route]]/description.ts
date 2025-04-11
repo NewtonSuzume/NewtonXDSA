@@ -18,18 +18,6 @@ export function registerServerMetadataRoutes(app: Hono) {
       
   })
 
-  control.get("/match/fields/refresh", async (c) => {
-    
-    try {
-      
-      await buildMariaDBTables(Configuration)
-      return c.json({okay: "okay"})
-
-    }
-    catch {
-      return c.json({notokay: "i am dead help"}, {status: 400});
-    }
-  })
 
   app.route("/info", control);
 }

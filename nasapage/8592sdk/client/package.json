@@ -1,0 +1,16 @@
+{
+  "name": "@newtonxdsa/client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.ts",
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@newtonxdsa/helpers": "file:../helpers",
+    "@newtonxdsa/types": "file:../types",
+    "uuid": "^11.1.0",
+    "zod": "^3.21.4"
+  },
+  "license": "ISC"
+}

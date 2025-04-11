@@ -1,10 +1,9 @@
-import { XDSACategory, XDSADatapoint, XDSAPresentationRequest, XDSAType } from "@newtonxdsa/types"
-import { XDSADatabase, XDSAGamePiece, XDSAInformation } from "@newtonxdsa/types"
+import { XDSADatabase, XDSAGamePiece, XDSAInformation, XDSACategory, XDSADatapoint, XDSAPresentationRequest, XDSAType } from "../8592sdk/types"
 
 export const DatabaseConnection: XDSADatabase = {
     host: "localhost",
-    password: "Kakarakaya&89Vepudu$56",
-    user: "root",
+    password: "newton2sxdsaserver",
+    user: "server",
     database: "XDSADatabase"
 }
 

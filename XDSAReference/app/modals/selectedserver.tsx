@@ -70,7 +70,8 @@ export default function SelectedServer() {
                       storeXDSAClientToJSONStore(XDSACurrentClient)
                       setTimeout(() => {router.back()}, 200)
                     }
-                    catch {
+                    catch (error) {
+                      console.log(error)
                       setXDSAStatus(1)
                     }
 

@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { generateZodTypeFromConfig } from "@newtonxdsa/helpers";
+import { generateZodTypeFromConfig } from "../../../../8592sdk/helpers";
 import { Configuration } from "../../../../configurations/xdsa_config";
 import { pullFromMatchesTable, upsertMatch } from "../../../../dbhandler/dbhandler";
 import { wss } from "@/app/sock/live_events";
