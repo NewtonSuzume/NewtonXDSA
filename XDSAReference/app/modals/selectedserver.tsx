@@ -11,6 +11,7 @@ import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { XDSADatapoint } from '@newtonxdsa/types';
 import { router } from 'expo-router';
 import { SKBGView } from '@/library/bases/ThemedViews';
+import { updateSettings, useSettingsWorkaround } from '@/data/settingsreloadcontext/settingsreload';
 
 
 export default function SelectedServer() {
@@ -22,6 +23,7 @@ export default function SelectedServer() {
   const [HTTPSEnabled, setHTTPSEnabled] = useState(true);
   const [XDSAStatus, setXDSAStatus] = useState(0);
   const [XDSAFields, setXDSAFields] = useState<XDSADatapoint[]>([])
+  const k = useSettingsWorkaround();
 
   function Pages(pagenum: number) {
 
@@ -64,10 +66,12 @@ export default function SelectedServer() {
 
                     try {
                       let x = await XDSACurrentClient.getServerConfig()
-                      let y = await XDSACurrentClient.getServerInfo()
+                      await XDSACurrentClient.getServerInfo()
                       setXDSAFields(x)
                       setXDSAStatus(3)
                       storeXDSAClientToJSONStore(XDSACurrentClient)
+                      if (k) updateSettings(k)
+                      
                       setTimeout(() => {router.back()}, 200)
                     }
                     catch (error) {

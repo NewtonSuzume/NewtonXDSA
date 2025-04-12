@@ -1,4 +1,5 @@
 import { EntryListContext } from '@/data/MatchEntry/MatchEntryContext';
+import { SettingsUpdateContext } from '@/data/settingsreloadcontext/settingsreload';
 import SakakiContext from '@/library/context';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -32,32 +33,34 @@ export default function RootLayout() {
       <Pressable style={{flexGrow: 1}}>
         
           <SafeAreaProvider>
-            <EntryListContext>
-              <SakakiContext>
+            <SettingsUpdateContext>
+              <EntryListContext>
+                <SakakiContext>
 
-                <Stack
-                
-                  screenOptions={{
-
-                    headerShown: false
-
-                  }}
-
-                >
-
-                  <Stack.Screen name="(tabs)"/>
+                  <Stack
                   
-                  <Stack.Screen name="modals/selectedserver" options={{presentation: 'modal'}}/>
-                  <Stack.Screen name="modals/createentry" options={{presentation: 'modal'}}/>
-                  <Stack.Screen name="modals/setdefaults" options={{presentation: 'modal'}}/>
-                  <Stack.Screen name="modals/[editentry]" options={{presentation: 'modal'}}/>
+                    screenOptions={{
+
+                      headerShown: false
+
+                    }}
+
+                  >
+
+                    <Stack.Screen name="(tabs)"/>
+                    
+                    <Stack.Screen name="modals/selectedserver" options={{presentation: 'modal'}}/>
+                    <Stack.Screen name="modals/createentry" options={{presentation: 'modal'}}/>
+                    <Stack.Screen name="modals/setdefaults" options={{presentation: 'modal'}}/>
+                    <Stack.Screen name="modals/[editentry]" options={{presentation: 'modal'}}/>
 
 
-                </Stack>
-                
+                  </Stack>
+                  
 
-              </SakakiContext>
-            </EntryListContext>
+                </SakakiContext>
+              </EntryListContext>
+            </SettingsUpdateContext>
           </SafeAreaProvider>
       </Pressable>
   );

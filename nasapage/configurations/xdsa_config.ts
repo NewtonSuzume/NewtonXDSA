@@ -4,7 +4,8 @@ export const DatabaseConnection: XDSADatabase = {
     host: "localhost",
     password: "newton2sxdsaserver",
     user: "server",
-    database: "XDSADatabase"
+    database: "XDSADatabase",
+    clearOnStart: true //IF THIS IS TRUE, THEN THE ENTIRE DB IS CLEANED ON SERVER START.
 }
 
 export const ServerInfo: XDSAInformation = {

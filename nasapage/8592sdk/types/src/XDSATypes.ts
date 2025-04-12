@@ -47,7 +47,8 @@ export interface XDSADatabase {
     host: string,
     user: string,
     password: string,
-    database: string
+    database: string,
+    clearOnStart: boolean
     
 }
 
