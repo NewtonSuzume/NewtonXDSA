@@ -1,6 +1,6 @@
 import { XDSACurrentClient } from "@/data/clientdata";
-import { FormEnumObject, SKFGViewForm, SKFormCounter, SKFormEnum, SKFormGradientScaleSlider, SKFormNumField, SKFormSlider, SKFormSwitch, SKFormTextField } from "@/library/form/FormItems";
-import { XDSADatapoint, XDSAEnumConfiguration, XDSAPresentationRequest, XDSAType } from "@newtonxdsa/types";
+import { FormEnumObject, SKFGViewForm, SKFormCounter, SKFormEnum, SKFormGradientScaleSlider, SKFormNumField, SKFormSwitch, SKFormTextField } from "@/library/form/FormItems";
+import { XDSADatapoint, XDSAEnumConfiguration, XDSAPresentationRequest, XDSAType } from "../../8592sdk/types";
 import { Keyboard, KeyboardAvoidingView, Platform, Pressable, View } from "react-native";
 import { ScrollView } from "react-native";
 

@@ -6,7 +6,7 @@
 		},
 		{
 			"name": "Server",
-			"path": "./nasapage"
+			"path": "./xdsaserver"
 		},
 		{
 			"name": "XDSAReference",

@@ -1,4 +1,4 @@
-import { XDSAGamePiece } from "@newtonxdsa/types";
+import { XDSAGamePiece } from "../../8592sdk/types";
 import { Image } from 'expo-image';
 
 export function GamePieceImageSelector(piece: XDSAGamePiece) {

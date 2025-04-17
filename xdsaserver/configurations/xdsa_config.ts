@@ -1,11 +1,11 @@
-import { XDSADatabase, XDSAGamePiece, XDSAInformation, XDSACategory, XDSADatapoint, XDSAPresentationRequest, XDSAType } from "../8592sdk/types"
+import { XDSADatabase, XDSAGamePiece, XDSAInformation, XDSACategory, XDSADatapoint, XDSAPresentationRequest, XDSAType, XDSATBAIntegrationSettings } from "../8592sdk/types"
 
 export const DatabaseConnection: XDSADatabase = {
     host: "localhost",
-    password: "newton2sxdsaserver",
-    user: "server",
+    password: "Kakarakaya&89Vepudu$56",
+    user: "root",
     database: "XDSADatabase",
-    clearOnStart: true //IF THIS IS TRUE, THEN THE ENTIRE DB IS CLEANED ON SERVER START.
+    clearOnStart: false //IF THIS IS TRUE, THEN THE ENTIRE DB IS CLEANED ON SERVER START.
 }
 
 export const ServerInfo: XDSAInformation = {
@@ -13,6 +13,11 @@ export const ServerInfo: XDSAInformation = {
     team: 8592,
     team_name: "Newton^2", 
     team_color: "#0093b0"
+}
+
+export const TBAFetchSettings: XDSATBAIntegrationSettings = {
+    api_key: "fbkgBWLltUBDHgZLy1P2OAnKWX4VfSHjEJDYNH9Jz9vXqpjxkUJpxXKJg4HYImIn",
+    event_key: "2025chcmp"
 }
 
 export const Configuration: XDSADatapoint[] = [
@@ -35,6 +40,7 @@ export const Configuration: XDSADatapoint[] = [
             presentableName: "Team Number",
             category: XDSACategory.GENERAL,
             type: XDSAType.INTEGER,
+            requested_presentation: XDSAPresentationRequest.SPECIAL
         },    
         {
             name: "scouter_num",

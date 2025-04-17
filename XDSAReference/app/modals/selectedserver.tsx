@@ -8,7 +8,7 @@ import { ActivityIndicator, KeyboardAvoidingView, Platform, View } from 'react-n
 import { useState } from 'react';
 import { storeXDSAClientToJSONStore, XDSACurrentClient } from '@/data/clientdata';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { XDSADatapoint } from '@newtonxdsa/types';
+import { XDSADatapoint } from '../../8592sdk/types';
 import { router } from 'expo-router';
 import { SKBGView } from '@/library/bases/ThemedViews';
 import { updateSettings, useSettingsWorkaround } from '@/data/settingsreloadcontext/settingsreload';

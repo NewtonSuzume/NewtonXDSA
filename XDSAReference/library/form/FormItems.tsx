@@ -282,7 +282,7 @@ export function SKFormSlider({title, onChange, value, items}: {title: string, on
                 <SKText>{items[0].title}</SKText>
                 <SKText style={{marginLeft: 'auto'}}>{items.splice(-1)[0].title}</SKText>
             </View>
-            <Slider onValueChange={x => onChange?.(x)} value={value} style={{width:"100%"}} minimumTrackTintColor={theme.acc.rgba()} step={1} minimumValue={items[0].value as number} maximumValue={items.slice(-1)[0].value+1 as number}></Slider>
+            <Slider tapToSeek={true} onValueChange={x => onChange?.(x)} value={value} style={{width:"100%"}} minimumTrackTintColor={theme.acc.rgba()} step={1} minimumValue={items[0].value as number} maximumValue={items.slice(-1)[0].value+1 as number}></Slider>
 
         </SKFormBasis>
     )

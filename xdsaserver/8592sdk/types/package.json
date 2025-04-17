@@ -1,0 +1,13 @@
+{
+  "name": "@newtonxdsa/types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.ts",
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "zod": "^3.21.4"
+  },
+  "license": "ISC"
+}

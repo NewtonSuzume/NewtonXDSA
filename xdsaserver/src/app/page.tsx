@@ -4,7 +4,7 @@ import { ItemText } from "./components/ItemText";
 export default function Home() {
   return (
     <div>
-      <div style={{paddingTop: 150}} className='logo-bg flex items-center flex-col w-full justify-center p-9'>
+      <div style={{paddingTop: 70}} className='logo-bg flex items-center flex-col w-full justify-center p-9'>
         <Image src="newton.svg" width={600} height={70} alt="newton^2 logo" className="newton"/>
         <h1 className="ntext text-center p-0 m-0 text-9xl text-white">XDSA</h1>
         <p className='stitle text-white'>A Newton² Project</p>

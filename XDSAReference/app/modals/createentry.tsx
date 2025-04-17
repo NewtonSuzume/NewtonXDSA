@@ -6,7 +6,7 @@ import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { XDSACurrentClient } from '@/data/clientdata';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { generateZodTypeFromConfig } from '@newtonxdsa/helpers';
+import { generateZodTypeFromConfig } from '../../8592sdk/helpers';
 import GeneratedForm from '@/components/formgenerator/AutoForm';
 import { addToEntryList, useEntryListProvider } from '@/data/MatchEntry/MatchEntryContext';
 import { router } from 'expo-router';

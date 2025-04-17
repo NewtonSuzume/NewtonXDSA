@@ -79,6 +79,11 @@ export interface XDSAInformation {
     team_color: string
 }
 
+export interface XDSATBAIntegrationSettings {
+    api_key: string,
+    event_key: string
+}
+
 export interface XDSAEvent {
 
     event: number,

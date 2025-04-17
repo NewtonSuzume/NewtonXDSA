@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { XDSAClient } from '@newtonxdsa/client'
+import { XDSAClient } from './client'
 import uuid from 'react-native-uuid'
 
 export const XDSACurrentClient = new XDSAClient("", fetch, uuid.v4)

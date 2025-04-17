@@ -5,7 +5,6 @@ import { SKFGViewForm, SKFormBasis, SKFormNavigation } from '@/library/form/Form
 import { storeXDSAClientToJSONStore, XDSACurrentClient } from '@/data/clientdata';
 import { SKBoldText, SKText } from '@/library/bases/ThemedText';
 import { Alert, TouchableOpacity, View } from 'react-native';
-import { useState } from 'react';
 import { useEntryListProvider } from '@/data/MatchEntry/MatchEntryContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { updateSettings, useSettingsWorkaround } from '@/data/settingsreloadcontext/settingsreload';

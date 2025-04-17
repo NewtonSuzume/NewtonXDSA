@@ -1,5 +1,5 @@
-import { XDSADatapoint, XDSAInformation, XDSAType } from '../8592sdk/types'
-import { generateZodTypeFromConfig } from "../8592sdk/helpers"
+import { XDSADatapoint, XDSAInformation, XDSAType } from '@newtonxdsa/types'
+import { generateZodTypeFromConfig } from "@newtonxdsa/helpers"
 
 interface BasicRepXDSAClient {
     endpoint: string,

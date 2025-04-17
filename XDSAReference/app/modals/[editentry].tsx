@@ -4,7 +4,7 @@ import { SKModalHeaderBar } from '@/library/headers/HeaderBar';
 import { Alert, KeyboardAvoidingView, Platform } from 'react-native';
 import { useEffect, useState } from 'react';
 import { XDSACurrentClient } from '@/data/clientdata';
-import { generateZodTypeFromConfig } from '@newtonxdsa/helpers';
+import { generateZodTypeFromConfig } from '../../8592sdk/helpers';
 import GeneratedForm from '@/components/formgenerator/AutoForm';
 import { useEntryListProvider } from '@/data/MatchEntry/MatchEntryContext';
 // @ts-ignore
@@ -18,7 +18,7 @@ export default function CreateEntryForm() {
   const context = useEntryListProvider()
   const param = useLocalSearchParams()
 
-  
+  // @ts-ignore
   const [form, setForm] = useState(context?.entries[parseInt(param.editentry as string)].content)
 
   useEffect(() => {
@@ -110,6 +110,7 @@ export default function CreateEntryForm() {
                 if (context) {
                   for (let item of context?.entries) {
 
+                    // @ts-ignore
                     XDSACurrentClient.addEntry(item.content)
 
                   }

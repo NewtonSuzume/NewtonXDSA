@@ -19,18 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <head><title>NewtonXDSA</title></head>
       <body className={inter.className}>
-        <div style={{position: 'absolute', height: 90, backgroundColor: "#FFFFFF55", width: "100%", backdropFilter: "blur(10px)", flexDirection: 'row'}}>
-          
-          <div style={{marginLeft: 'auto', height: "100%", backgroundColor: 'green', alignItems: 'center', justifyContent: 'center', width: 500}}>
-            
-            
-
-          </div>
-
-        </div>
-        <div>
           {children}
-        </div>
       </body>
     </html>
   );
