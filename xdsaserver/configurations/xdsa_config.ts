@@ -5,7 +5,7 @@ export const DatabaseConnection: XDSADatabase = {
     password: "Kakarakaya&89Vepudu$56",
     user: "root",
     database: "XDSADatabase",
-    clearOnStart: false //IF THIS IS TRUE, THEN THE ENTIRE DB IS CLEANED ON SERVER START.
+    clearOnStart: true //IF THIS IS TRUE, THEN THE ENTIRE DB IS CLEANED ON SERVER START.
 }
 
 export const ServerInfo: XDSAInformation = {
