@@ -2,7 +2,7 @@ import { XDSADatabase, XDSAGamePiece, XDSAInformation, XDSACategory, XDSADatapoi
 
 export const DatabaseConnection: XDSADatabase = {
     host: "localhost",
-    password: "Kakarakaya&89Vepudu$56",
+    password: "<db pass goes here>",
     user: "root",
     database: "XDSADatabase",
     clearOnStart: true //IF THIS IS TRUE, THEN THE ENTIRE DB IS CLEANED ON SERVER START.
